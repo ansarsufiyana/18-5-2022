@@ -77,17 +77,103 @@
 
 // // class
 
-class Elf{
-    constructor(name, weapon) {
-        this.name =name;
+// class Elf{
+//     constructor(name, weapon) {
+//         this.name =name;
+//         this.weapon = weapon;
+//     }
+//    attack(){
+//     return 'attack with ' + this.weapon
+//    } 
+// }
+
+// const peter = new Elf('peter', 'stones')
+// console.log(peter);
+// const sam = new Elf('sam', 'fire')
+// console.log(sam.attack());
+
+// // this key wrod
+
+// // new binding this
+
+// function Person(name, age){
+//     this.name =name;
+//     this.age = age;
+// }
+
+// const person1 = new Person('xaiver', 55)
+// console.log(person1);
+
+// // //implicit binding
+// const person = {
+//     name: 'karen',
+//     age: 40,
+//     hi(){
+//         console.log('hi' + this.name);
+//     }
+// }
+
+
+// // explicit binding
+
+// const person3 = {
+//     name: 'karen',
+//     age: 40,
+//     hi: function(){
+//         console.log('hi' + this.setTimeout);
+//     }.bind(window)
+//}
+// console.log(person3.hi());
+
+
+// // arrow function
+// const person4 = {
+//     name: 'karen',
+//     age: 40,
+//     hi: function(){
+//         var inner = () => {
+
+//         console.log('hi' + this.name);
+    
+//         }
+//         return inner()
+//     }
+// }
+// console.log(person4.hi());
+
+
+// // // creating a simole game
+
+class Character{
+    constructor(name, weapon){
+        this.name = name;
         this.weapon = weapon;
     }
-   attack(){
-    return 'attack with ' + this.weapon
-   } 
+    attack(){
+        return 'attack with ' + this.weapon;
+    }
 }
 
-const peter = new Elf('peter', 'stones')
-console.log(peter);
-const sam = new Elf('sam', 'fire')
-console.log(sam.attack());
+class Elf extends Character{
+    constructor(name, weapon, type){
+        super(name, weapon);
+        this.type = type;
+    }
+}
+
+class Ogre extends Character{
+    constructor(name, weapon, color){
+        super(name, weapon);
+        this.color = color;
+    }
+    makeFort (){
+        return 'strongest fort in the world made';
+    }
+}
+
+const dolby = new Elf('dolby', 'stone', 'house');
+console.log(dolby.attack());  
+
+const shrek = new Ogre('shrek', 'club', 'green')
+console.log(shrek.makeFort());
+
